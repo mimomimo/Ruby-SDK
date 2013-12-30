@@ -1,0 +1,20 @@
+<?php
+    // WePay PHP SDK - http://git.io/mY7iQQ
+    require 'wepay.php';
+
+    // change to useProduction for live environments
+    Wepay::useStaging(YOUR_CLIENT_ID, YOUR_CLIENT_SECRET);
+    $wepay = new WePay(ACCESS_TOKEN);
+
+    // create the checkout
+    $response = $wepay->request('checkout/create', array(
+        'account_id'        => ACCOUNT_ID,
+        'amount'            => '24.95',
+        'short_description' => 'A brand new soccer ball',
+        'type'              => 'GOODS'
+    ));
+
+    // display the response
+    print_r($response);
+?>
+		
